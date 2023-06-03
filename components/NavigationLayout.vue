@@ -1,7 +1,7 @@
 <template>
     <div>
         <div ref="navbar" class="fixed top-0 left-0 w-full transition-all text-center z-40" :class="{'p-4': scrollY >= 240, 'p-0': scrollY < 240}">
-            <div class="shadow-[0_35px_60px_-15px_rgba(0,0,0,0.1)] transition-all ease-in-out duration-1000 inline-block py-4 px-6"
+            <div class="shadow-[0_35px_60px_-15px_rgba(0,0,0,0.1)] transition-all ease-in-out duration-400 inline-block py-4 px-6"
             :class="{'bg-[#10123C]': openMenu, 'bg-white': !openMenu, 'w-10/12 rounded-3xl': scrollY >= 240, 'w-full': scrollY < 240}">
                 <div class="grid grid-cols-3 items-center">
                     <div class="text-left">
@@ -29,7 +29,6 @@
                     <div class="text-4xl transition-all cursor-pointer font-bold hover:text-primary hover:pl-4">TARGET</div>
                     <div class="text-4xl transition-all cursor-pointer font-bold hover:text-primary hover:pl-4">TEAMS</div>
                     <div class="text-4xl transition-all cursor-pointer font-bold hover:text-primary hover:pl-4">PROGRESS</div>
-                    <div class="text-4xl transition-all cursor-pointer font-bold hover:text-primary hover:pl-4">MEDIA</div>
                 </div>
                 <div class="text-right justify-self-end">
                     <div class="w-full p-5 border border-white/10 rounded-xl">
@@ -52,7 +51,7 @@
 
 <script setup lang="ts">
 import { Icon } from '@iconify/vue'
-import { ref, Ref } from 'vue'
+import { ref, Ref, onMounted, onBeforeMount } from 'vue'
 
 const openMenu: Ref<boolean> = ref(false)
 const scrollY: Ref<number> = ref(0)
@@ -63,11 +62,11 @@ function updateScroll() {
     scrollY.value = window.scrollY
     if(navbar.value) {
         if (scrollY.value > lastScrollPosition.value) {
-            navbar.value.classList?.add('-top-20')
+            navbar.value.classList?.add('-top-20', 'scale-[0.65]')
             navbar.value.classList?.remove('top-0')
         } else {
             navbar.value.classList?.add('top-0')
-            navbar.value.classList?.remove('-top-20')
+            navbar.value.classList?.remove('-top-20', 'scale-[0.65]')
         }
     }
     lastScrollPosition.value = scrollY.value <= 0 ? 0 : scrollY.value
