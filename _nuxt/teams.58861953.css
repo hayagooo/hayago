@@ -1,0 +1,1 @@
+@keyframes animate{0%{opacity:.5;transform:scale(.5)}50%{opacity:1;transform:scale(1)}to{opacity:.5;transform:scale(.5)}}.dot{animation:animate 2s linear infinite}.dot:nth-child(odd){animation-duration:3s}
