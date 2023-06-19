@@ -1,11 +1,33 @@
 <template>
-    <div>
+    <div class="overflow-x-hidden">
       <NavigationLayout/>
-      
-      <div class="container mx-auto min-h-screen grid grid-cols-1 items-center px-8 lg:px-12 justify-center">
+      <Loading />
+      <div v-if="support3D" class="lg:py-32 min-h-screen relative">
+        <div ref="render3D"></div>
+        <div class="absolute lg:w-1/2 w-full lg:h-full bottom-0 lg:pt-0 pt-48 lg:pb-0 pb-20 right-0 lg:bg-gradient-to-l bg-gradient-to-t from-white to-white/0 px-12 flex items-center">
+          <div class="lg:text-right text-center w-full">
+            <p class="text-primary mb-4">UNVEILING THE WORLD OF HAYAGO.</p>
+            <h3 class="text-5xl">Effortless Drone <br> Delivery Solutions.</h3>
+            <div class="flex mt-6 gap-x-3 justify-center lg:justify-end">
+              <button class="btn bg-white/0 p-0 border-0">
+                <img src="/image/googleplay.png" alt="Download on Google Play" class="h-12">
+              </button>
+              <button class="btn bg-white/0 p-0 border-0">
+                <img src="/image/appstore.png" alt="Download on AppStore" class="h-12">
+              </button>
+            </div>
+            <div class="flex items-center w-full lg:justify-end justify-center">
+              <a href="#service" class="animate-bounce mt-8">
+                <Icon icon="mingcute:down-line" class="text-primary text-xl"/>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div v-else class="container lg:py-48 mx-auto min-h-screen grid grid-cols-1 items-center px-8 lg:px-12 justify-center">
         <div class="grid grid-cols-1 lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 items-center pb-16" data-aos="fade-right">
-          <div class="text-center">
-            <img src="/image/drone.png" alt="Hayago Drone Delivery" class="w-full lg:my-0 mt-48 mb-24 inline-block">
+          <div class="w-full">
+            <img src="/image/drone.png" ref="hayagoImageRef" alt="Hayago Drone Delivery" class="w-full lg:my-0 mt-48 mb-24 inline-block">
           </div>
           <div class="text-center lg:text-left" data-aos="fade-left">
             <p class="text-primary mb-8">UNVEILING THE WORLD OF HAYAGO.</p>
@@ -22,7 +44,7 @@
         </div>
       </div>
   
-      <div id="service" class="container mx-auto px-8 lg:px-12 min-h-screen px-24">
+      <div id="service" class="overflow-x-hidden container mx-auto px-8 lg:px-12 min-h-screen px-24">
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-x-8 items-center justify-center space-y-12 lg:space-y-0">
           <div @mouseover="selectFeature(1)" @mouseleave="featureSelected = 0" data-aos="fade-left" class="overflow-hidden cursor-pointer w-full lg:h-[600px] md:h-[500px] h-[500px] bg-green-100 inline-block rounded-2xl relative">
             <div class="absolute transition-all w-full h-16 bg-green-600 bottom-0 left-0"
@@ -68,7 +90,7 @@
           </div>
         </div>
         <div class="w-full flex items-center justify-center my-24 text-center">
-          <div class="lg:max-w-none max-w-lg" data-aos="fade-up">
+          <div class="lg:max-w-none max-w-lg" data-aos="fade-down">
             <p class="text-primary mb-4">THE GUIDING PURPOSE OF HAYAGO DEVELOPMENT.</p>
             <h6 class="text-xl font-semibold">Our purpose is to uplift the globe by ensuring suburban deliveries are speedily efficient, cost-effective, sustainable, and secure.</h6>
           </div>
@@ -107,7 +129,7 @@
         </div>
       </div>
   
-      <div class="w-full grid grid-cols-1 items-center justify-items-center mx-auto relative z-10 py-16">
+      <div class="w-full overflow-x-hidden grid grid-cols-1 items-center justify-items-center mx-auto relative z-10 py-16">
         <div id="instantly" ref="instantly" class="rounded-2xl h-[50vh] lg:h-[80vh] overflow-hidden relative transition-all ease-in-out duration-1000">
           <div class="absolute bg-black/40 w-full h-full top-0 left-0 rounded-t-3xl flex items-center justify-center justify-items-center">
             <div class="text-white text-center">
@@ -118,13 +140,14 @@
         </div>
       </div>
   
-      <div class="lg:min-h-screen lg:py-4 py-12 overflow-hidden relative z-10">
-        <div class="absolute left-0 top-0 bg-gradient-to-b from-white to-gray-100 w-full h-full"></div>
-        <div class="container mx-auto flex items-center justify-center">
-          <div class="max-w-lg text-center">
-            <h1 class="text-2xl font-semibold" data-aos="fade-up">Our solutions are embraced by individuals throughout Indonesia.</h1>
-          </div>
+      <div class="container mx-auto flex lg:px-12 px-8 items-center justify-center">
+        <div class="max-w-lg text-center" data-aos="fade-up">
+          <h1 class="text-2xl font-semibold">Our solutions are embraced by individuals throughout Indonesia.</h1>
         </div>
+      </div>
+
+      <div class="lg:min-h-screen lg:py-4 py-12 overflow-x-hidden relative z-10">
+        <div class="absolute left-0 top-0 bg-gradient-to-b from-white to-gray-100 w-full h-full"></div>
         <div id="solution" ref="solution" class="grid lg:gap-x-12 gap-x-4 scale-100 py-12 grid-cols-4 items-center justify-center relative">
           <div>
             <div id="tegar" ref="tegar" class="rounded-3xl overflow-hidden relative lg:h-80 h-60 w-full scale-75 opacity-50 top-32 -left-32 hover:scale-[0.7] transition-all cursor-pointer ease-in-out duration-1000" @mouseleave="solutionSelected = 0" @mouseover="solutionSelected = 1">
@@ -161,7 +184,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div>gltf.scene.rotation.x = THREE.MathUtils.degToRad(45);
   
       <div class="min-h-screen overflow-hidden relative z-10 bg-gray-100">
         <div class="container mx-auto flex items-center justify-center">
@@ -230,13 +253,13 @@
             <div class="text-white text-center py-24">
               <h1 class="text-4xl font-bold">The Case for Hayago Drone Delivery</h1>
             </div>
-            <div ref="casesDescription" class="block lg:min-h-[900vh] md:min-h-[600vh] min-h-[400vh]">
+            <div ref="casesDescription" class="block lg:min-h-[1200vh] md:min-h-[600vh] min-h-[400vh]">
               <div class="min-h-screen flex-col justify-items-center w-full flex sticky items-center overflow-hidden top-0">
                 <!-- <div ref="caseHorizontalScroll" class="w-auto flex" style="will-change: transform; transform: translate3d(10.4616%, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;"> -->
-                <div ref="casesHorizontalScroll" class="w-auto transition-all duration-600 ease-in-out flex items-center lg:pt-32 md:pt-24 pt-24 -translate-x-60">
-                  <div class="pt-0 w-[100vw] shrink-0 flex-col justify-items-center items-center flex lg:px-0 px-12">
+                <div ref="casesHorizontalScroll" class="w-auto transition-all duration-600 ease-in-out flex items-center lg:pt-16 md:pt-16 pt-24 -translate-x-60">
+                  <div class="w-[100vw] shrink-0 flex-col justify-items-center items-center flex lg:px-0 px-12">
                     <div class="mx-auto relative text-center">
-                      <img src="/image/map1.png" class="lg:w-1/2 md:w-3/4 w-full inline-block" alt="map">
+                      <img src="/image/map1.png" class="lg:w-1/2 md:w-1/4 w-3/4 w-full inline-block" alt="map">
                     </div>
                     <div class="mx-auto relative text-white text-center">
                       <h2 class="text-4xl font-bold mb-3">Quieter</h2>
@@ -361,19 +384,21 @@
           </div>
         </div>
       </div>
+      <FooterLayout/> 
     </div>
-  
-    <FooterLayout/> 
   </template>
   
   
 <script setup lang="ts">
-  import { ref, Ref, onMounted, onUnmounted, computed, onUpdated, watch } from 'vue'
+  import { ref, Ref, onMounted, onUnmounted, computed, onUpdated, watch, onBeforeUnmount } from 'vue'
   import { Icon } from '@iconify/vue'
   import AOS from 'aos'
   import 'aos/dist/aos.css'
   import 'animate.css'
   import { useRouter } from 'vue-router'
+  import * as THREE from 'three'
+  import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+  import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 
   useSeoMeta({
     title: 'Hayago - Revolutionizing Drone Delivery',
@@ -407,12 +432,84 @@
   const productSelected: Ref<number> = ref(1)
   const solutionSelected: Ref<number> = ref(0)
   const faqSelected: Ref<number> = ref(0)
-  
+  const support3D: Ref<boolean> = ref(true)
+  const render3D: Ref<HTMLElement|null> = ref(null)
+  let scene: THREE.Scene;
+  let camera: THREE.PerspectiveCamera;
+  let renderer: THREE.WebGLRenderer;
+  let loader: GLTFLoader;
+  let mesh: THREE.Mesh;
+  let controls: OrbitControls;
+  const isWebGLAvailable = () => {
+    try {
+        const canvas = document.createElement('canvas');
+        return !!(
+            window.WebGLRenderingContext && 
+            (canvas.getContext('webgl') || 
+            canvas.getContext('experimental-webgl'))
+        );
+    } catch (e) {
+        return false;
+    }
+  }
   onMounted(() => {
     window.addEventListener("scroll", checkScroll)
+    window.addEventListener("resize", handleResize)
     AOS.init();
+    if(!isWebGLAvailable()) support3D.value = false
+    if(support3D.value) {
+      scene = new THREE.Scene()
+      scene.add(new THREE.HemisphereLight(0xffffff, 1.5));
+      // camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
+      camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.01, 1000)
+      renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true })
+      // renderer.setClearColor(0xffffff);
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      controls = new OrbitControls(camera, renderer.domElement)
+      controls.enableDamping = true
+      controls.rotateSpeed = 0.09
+      controls.dampingFactor = 0.1
+      controls.enableZoom = true
+      controls.autoRotate = true
+      controls.autoRotateSpeed = .75
+      loader = new GLTFLoader()
+      if(render3D.value) render3D.value.appendChild(renderer.domElement)
+      loader.load('/3d/drone.glb', (gltf: any) => {
+        gltf.scene.rotation.x = THREE.MathUtils.degToRad(-75);
+        scene.add(gltf.scene);
+        gltf.scene.traverse((object: any) => {
+          console.log('object color')
+          if (!object.isMesh) return;
+          console.log(object.material.color.r)
+          if (object.isMesh && object.material && (object.material.color.r >= 0.50 && object.material.color.r < 0.65)) {
+            object.material.color.set('blue');
+          }
+          object.geometry.computeBoundingBox();
+          let middle = new THREE.Vector3();
+          object.geometry.boundingBox.getCenter(middle);
+          let largestDimension = Math.max(
+            object.geometry.boundingBox.max.x,
+            object.geometry.boundingBox.max.y,
+            object.geometry.boundingBox.max.z
+          );
+          camera.position.z = largestDimension * 0.2;
+        });
+      });
+      animate()
+    }
   })
 
+  const animate = () => {
+    requestAnimationFrame(animate)
+    controls.update()
+    renderer.render(scene, camera)
+  }
+
+  onBeforeUnmount(() => {
+    controls.dispose()
+    renderer.dispose()
+  });
+  
   onUnmounted(() => {
     window.removeEventListener("scroll", checkScroll)
   })
@@ -421,6 +518,10 @@
     scrollPos.value = window.scrollX
   }
   
+  function handleResize() {
+    if(!window.WebGLRenderingContext) support3D.value = false
+  }
+
   function checkScroll() {
     if(procedureScroll.value) {
       const rect = procedureScroll.value.getBoundingClientRect()
@@ -458,7 +559,7 @@
     }
     if(procedurePoint4.value) {
       const procedurRect = procedurePoint4.value.getBoundingClientRect()
-      if(procedurRect.top <= 300) {
+      if(procedurRect.top <= 300) { 
         procedurePoint4.value.classList.remove('bg-gray-400')
         procedurePoint4.value.classList.add('bg-primary')
       } else {
@@ -554,3 +655,9 @@
   }
   </script>
   
+
+  <style>
+  p {
+    color: #aaaaaa
+  }
+</style>

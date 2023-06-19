@@ -1,21 +1,22 @@
 <template>
     <div>
         <navigation-layout/>
-        <div class="relative z-10">
-            <div class="pt-64 pb-20 w-full mx-auto container lg:px-12 px-8">
+        <Loading />
+        <div class="relative z-10 w-full overflow-x-hidden">
+            <div class="lg:pt-64 pt-48 pb-20 w-full mx-auto container lg:px-12 px-8">
                 <div class="grid items-center lg:grid-cols-2 gap-x-6 grid-cols-1">
                     <div class="text-left">
-                        <h1 data-aos="fade-left" class="text-6xl">Championing Innovation</h1>
+                        <h1 data-aos="fade-left" class="lg:text-6xl text-4xl">Championing Innovation</h1>
                         <p data-aos="fade-right" class="text-2xl mt-8 text-gray-600">Our Goal for PKM KC 2023, Indonesia</p>
                     </div>
                     <div ref="teamsImage" class="lg:mt-16 mt-24 relative transition-all ease-in-out duration-200">
-                        <img data-aos="fade-left" src="/image/target/pkm.png" alt="Hayago Team" class="w-full inline-block rounded-[3rem]">
+                        <img data-aos="fade-left" src="/image/target/pkm.png" alt="Hayago Team" class="w-full inline-block lg:rounded-[3rem] rounded-[1.5rem]">
                     </div>
                 </div>
             </div>
             <div class="container lg:px-12 px-8 mx-auto py-24 w-full text-center">
                 <p class="text-xl text-gray-600" data-aos="fade-up">
-                    <span class="font-semibold text-primary">PKM-KC 2023</span>: A Platform for Students to Transform Constructive Ideas into Reality. Based on creativity and logic, even if it's yet to provide perfect functionality or immediate benefits to others, it's a step in the right direction towards innovation and progress.
+                    <span class="font-semibold text-primary text-3xl block mb-4">PKM-KC 2023</span> <br> A Platform for Students to Transform Constructive Ideas into Reality. Based on creativity and logic, even if it's yet to provide perfect functionality or immediate benefits to others, it's a step in the right direction towards innovation and progress.
                 </p>
             </div>
             <div class="w-full grid grid-cols-1 items-center justify-items-center mx-auto relative z-10 py-16">
@@ -23,7 +24,7 @@
                 <div class="absolute bg-black/50 w-full h-full top-0 left-0 rounded-t-3xl flex items-center justify-center justify-items-center">
                     <div class="text-white text-center grid lg:grid-cols-3 grid-cols-1 items-center">
                         <div class="text-left lg:px-12 px-8">
-                            <h1 class="text-5xl grow font-bold">We possess an inspiring vision</h1>
+                            <h1 class="lg:text-5xl text-3xl grow font-bold">We possess an inspiring vision</h1>
                         </div>
                         <div class="px-8 col-span-2 lg:px-12 px-8 lg:mt-0 mt-6">
                             <p>To engineer autonomous copters that provide innovative, swift, and eco-friendly logistics solutions. We harness advanced intelligent control systems and predictive control estimation to optimize system efficiency and reliability</p>
@@ -36,11 +37,11 @@
             <div class="py-12 pb-20 w-full mx-auto container lg:px-12 px-8">
                 <div class="grid items-center lg:grid-cols-2 gap-x-6 grid-cols-1">
                     <div ref="teamsImage" class="lg:mt-16 mt-24 relative transition-all ease-in-out duration-200">
-                        <img data-aos="fade-right" src="/image/target/bimbingan.png" alt="Hayago Team" class="w-full inline-block rounded-[3rem]">
+                        <img data-aos="fade-right" src="/image/missions.png" alt="Hayago Team" class="w-full inline-block lg:rounded-[3rem] rounded-[1.5rem]">
                     </div>
                     <div class="text-right lg:mt-0 mt-12">
-                        <h1 data-aos="fade-left" class="text-6xl">We harbor a multitude of missions.</h1>
-                        <p data-aos="fade-right" class="text-2xl mt-8 text-gray-600">all geared towards the success of PKM-KC 2023.</p>
+                        <h1 data-aos="fade-left" class="lg:text-6xl text-3xl">We harbor a multitude of missions.</h1>
+                        <p data-aos="fade-right" class="lg:text-2xl text-xl mt-8 text-gray-600">all geared towards the success of PKM-KC 2023.</p>
                     </div>
                 </div>
             </div>

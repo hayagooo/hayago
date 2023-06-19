@@ -1,12 +1,13 @@
 <template>
     <div>
         <navigation-layout/>
+        <Loading />
         <div class="relative z-10">
             <div class="pt-64 pb-20 w-full mx-auto container lg:px-12 px-8 text-center">
-                <h1 data-aos="fade-left" class="text-6xl">Pioneers in Drone Delivery</h1>
-                <p data-aos="fade-right" class="text-2xl mt-8 text-gray-600">Introducing the Hayago Team</p>
+                <h1 data-aos="fade-left" class="lg:text-6xl text-3xl">Pioneers in Drone Delivery</h1>
+                <p data-aos="fade-right" class="lg:text-2xl text-lg mt-8 text-gray-600">Introducing the Hayago Team</p>
                 <div ref="teamsImage" class="lg:mt-16 mt-24 scale-75 top-100 opacity-20 relative transition-all ease-in-out duration-200">
-                    <img src="/image/teams.png" alt="Hayago Team" class="lg:w-3/4 w-full inline-block rounded-[3rem]">
+                    <img src="/image/teams.png" alt="Hayago Team" class="lg:w-3/4 w-full inline-block lg:rounded-[3rem] rounded-[1.5rem]">
                 </div>
             </div>
             <div data-aos="fade-up" class="py-12 text-center container lg:px-12 px-8 mx-auto w-full">
@@ -24,22 +25,22 @@
             </div>
             <div class="w-full bg-gray-100 grid grid-cols-1 items-center justify-items-center mx-auto relative z-10 py-16">
                 <div class="w-full h-full absolute bottom-0 left-0 bg-gradient-to-b from-white to-gray-100"></div>
-                <div ref="teams" class="rounded-2xl lg:min-h-[900vh] md:min-h-[600vh] min-h-[450vh] relative transition-all ease-in-out duration-1000">
-                    <div class="text-white font-semibold text-4xl text-center p-12">
-                        <h1>Meet Hayagos Team Now</h1>
-                    </div>
-
-                    <div ref="teamsContent" class="lg:min-h-[900vh] md:min-h-[600vh] min-h-[450vh] block bg-primary rounded-3xl">
-                        <div
-                            class="dot bg-white absolute"
-                            :class="dot.class"
-                            v-for="dot in dots" :key="dot.id"
-                            :style="{
-                                top: `${dot.top}%`,
-                                left: `${dot.left}%`,
-                            }"
-                        ></div>
-                        <div class="min-h-screen flex-col justify-items-center w-full flex sticky items-center overflow-hidden top-0">
+                <div ref="teams" class="rounded-2xl lg:min-h-[1000vh] md:min-h-[700vh] min-h-[450vh] relative transition-all ease-in-out duration-1000">
+                    <div ref="teamsContent" class="lg:min-h-[1200vh] md:min-h-[600vh] min-h-[450vh] block bg-primary rounded-3xl relative"
+                    style="will-change: transform; transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);transform-style: preserve-3d;">
+                        <div class="text-white font-semibold text-4xl text-center p-12">
+                            <h1>Meet Hayagos Team Now</h1>
+                        </div>
+                        <div class="min-h-screen flex-col justify-items-center w-full flex sticky items-center overflow-hidden top-0 relative">
+                            <!-- <div
+                                class="dot bg-white absolute z-50"
+                                :class="dot.class"
+                                v-for="dot in dots" :key="dot.id"
+                                :style="{
+                                    top: `${dot.top}%`,
+                                    left: `${dot.left}%`,
+                                }"
+                            ></div> -->
                             <div ref="teamsScroll" class="w-auto transition-all duration-600 ease-in-out flex items-center">
                                 <div class="w-[100vw] shrink-0 h-[100vh] relative justify-items-center flex lg:px-0 px-12 items-end">
                                     <div class="absolute lg:top-24 md:top-36 top-20 left-0 w-full text-center">
@@ -52,7 +53,7 @@
                                             <p class="lg:text-md text-sm mt-4 text-white">Collaboration and creativity will be key to overcoming the unique challenges of drone delivery.</p>
                                         </div>
                                     </div>
-                                    <img src="/image/team/ninno.png" class="w-[24rem] mx-auto relative" alt="Leader">
+                                    <img src="/image/team/ninno.png" class="lg:w-[18rem] w-[24rem] mx-auto relative" alt="Leader">
                                     <div class="absolute lg:bottom-1/4 md:bottom-1/4 bottom-10 lg:left-1/4 left-12">
                                         <div class="name lg:w-96 max-w-xs md:bg-primary/30 bg-primary/60 rounded-2xl backdrop-blur lg:p-8 md:p-8 p-6">
                                             <h1 class="lg:text-6xl md:text-xl text-4xl font-bold text-white">NINNO</h1>
@@ -73,7 +74,7 @@
                                             <p class="lg:text-md text-sm mt-4 text-white">To lead with strategic operational excellence, enabling the successful realization of our innovative drone delivery project.</p>
                                         </div>
                                     </div>
-                                    <img src="/image/team/adell.png" class="w-[24rem] mx-auto relative" alt="Leader">
+                                    <img src="/image/team/adell.png" class="lg:w-[19rem] w-[24rem] mx-auto relative" alt="Leader">
                                     <div class="absolute lg:bottom-1/4 md:bottom-[27%] bottom-10 left-1/4">
                                         <div class="name lg:w-96 max-w-xs md:bg-primary/30 bg-primary/60 rounded-2xl backdrop-blur lg:p-8 md:p-8 p-6">
                                             <h1 class="lg:text-6xl md:text-xl text-4xl font-bold text-white">ADELL</h1>
@@ -94,7 +95,7 @@
                                             <p class="lg:text-md text-sm mt-4 text-white">To pioneer innovative electric solutions that power the future of drone delivery, optimizing efficiency and reliability in every flight.</p>
                                         </div>
                                     </div>
-                                    <img src="/image/team/tegar.png" class="w-[25rem] mx-auto relative" alt="Leader">
+                                    <img src="/image/team/tegar.png" class="lg:w-[19rem] w-[25rem] mx-auto relative" alt="Leader">
                                     <div class="absolute lg:bottom-1/4 md:bottom-[27%] bottom-10 left-1/4">
                                         <div class="name lg:w-96 max-w-xs md:bg-primary/30 bg-primary/60 rounded-2xl backdrop-blur lg:p-8 md:p-8 p-6">
                                             <h1 class="lg:text-6xl md:text-xl text-4xl font-bold text-white">TEGAR</h1>
@@ -115,7 +116,7 @@
                                             <p class="lg:text-md text-sm mt-4 text-white">To engineer and innovate with precision and reliability, ensuring the highest standard of performance and safety in our drone delivery solutions.</p>
                                         </div>
                                     </div>
-                                    <img src="/image/team/fadil.png" class="w-[24rem] mx-auto relative" alt="Leader">
+                                    <img src="/image/team/fadil.png" class="lg:w-[17rem] w-[24rem] mx-auto relative" alt="Leader">
                                     <div class="absolute lg:bottom-1/4 md:bottom-[27%] bottom-10 left-1/4">
                                         <div class="name lg:w-96 max-w-xs md:bg-primary/30 bg-primary/60 rounded-2xl backdrop-blur lg:p-8 md:p-8 p-6">
                                             <h1 class="lg:text-6xl md:text-xl text-4xl font-bold text-white">FADIL</h1>
@@ -126,7 +127,7 @@
 
                                 <div class="w-[100vw] shrink-0 h-[100vh] relative justify-items-center flex lg:px-0 px-12 items-end">
                                     <div class="absolute lg:top-24 md:top-36 top-20 left-0 w-full text-center">
-                                        <h1 class="lg:text-[14rem] md:text-[5rem] text-[4rem] font-black text-white">CONTROL</h1>
+                                        <h1 class="lg:text-[14rem] md:text-[5rem] text-[4rem] font-black text-white">SCIENTIST</h1>
                                     </div>
 
                                     <div class="absolute lg:bottom-1/4 md:block hidden bottom-5 lg:z-10 z-20 text-right lg:left-[60%] left-auto lg:right-auto right-10">
@@ -136,7 +137,7 @@
                                             <p class="lg:text-md text-sm mt-4 text-white">To pioneer advancements in smart navigation technology, driving the success and safety of our drone delivery project.</p>
                                         </div>
                                     </div>
-                                    <img src="/image/team/gus.png" class="w-[26rem] mx-auto relative" alt="Leader">
+                                    <img src="/image/team/gus.png" class="lg:w-[18rem] w-[26rem] mx-auto relative" alt="Leader">
                                     <div class="absolute lg:bottom-1/4 md:bottom-[27%] bottom-10 left-1/4">
                                         <div class="name lg:w-96 max-w-xs md:bg-primary/30 bg-primary/60 rounded-2xl backdrop-blur lg:p-8 md:p-8 p-6">
                                             <h1 class="lg:text-6xl md:text-xl text-4xl font-bold text-white">GUS</h1>
@@ -165,6 +166,7 @@ interface Dot {
   left: number;
   class: string;
 }
+
 const dots = ref<Dot[]>([])
 const random = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min
 const teams: Ref<HTMLElement|null> = ref(null)
@@ -232,34 +234,9 @@ function updateScroll() {
     }
 }
 
-//  if(cases.value && casesContent.value) {
-//       const rect = cases.value.getBoundingClientRect()
-//       if (rect.top >= 0) {
-//         casesContent.value.classList?.add('rounded-3xl')
-//       } else {
-//         casesContent.value.classList?.remove('rounded-3xl')
-//       }
-//       if (rect.top <= 320) {
-//         cases.value.classList?.add('w-full')
-//         cases.value.classList?.remove('w-10/12')
-//         if (casesDescription.value) {
-//           const scrollY = casesDescription.value.getBoundingClientRect()
-//           console.log(window.innerWidth)
-//           if(window.innerWidth > 770) {
-//             casesTreshold.value = 3800
-//           } else {
-//             casesTreshold.value = 1000
-//           }
-//           if(casesHorizontalScroll.value) casesHorizontalScroll.value.style.transform = `translateX(${scrollY.top + casesTreshold.value}px)`
-//         }
-//       } else {
-//         cases.value.classList?.add('w-10/12')
-//         cases.value.classList?.remove('w-full')
-//       }
-//     }
 </script>
 
-<style scope>
+<style>
 @keyframes animate {
   0% {
     opacity: 0.5;
