@@ -61,7 +61,7 @@ async function onSubmit() {
     try {
         await signInWithEmailAndPassword(nuxtApp.$auth, email.value, password.value);
         router.push('/admin')
-    } catch (e) {
+    } catch (e: any) {
         error.value = e.code;
     }
 }

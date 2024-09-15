@@ -102,8 +102,8 @@ function updateScroll() {
 }
 
 function gotoContent(value: string) {
-    router.push('/#service')
     openMenu.value = false
+    router.push('/')
 }
 
 onMounted(() => {

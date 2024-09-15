@@ -1,5 +1,5 @@
 <template>
-    <div class="overflow-x-hidden">
+    <div>
       <NavigationLayout/>
       <Loading />
       <div v-if="support3D" class="lg:py-32 min-h-screen relative">
@@ -184,7 +184,7 @@
             </div>
           </div>
         </div>
-      </div>gltf.scene.rotation.x = THREE.MathUtils.degToRad(45);
+      </div>
   
       <div class="min-h-screen overflow-hidden relative z-10 bg-gray-100">
         <div class="container mx-auto flex items-center justify-center">
@@ -452,10 +452,22 @@
         return false;
     }
   }
+
+  const onWindowResize = () => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  };
+
   onMounted(() => {
     window.addEventListener("scroll", checkScroll)
     window.addEventListener("resize", handleResize)
-    AOS.init();
+    AOS.init({
+      disable: function() {
+        var maxWidth = 768;
+        return window.innerWidth < maxWidth;
+      }
+    });
     if(!isWebGLAvailable()) support3D.value = false
     if(support3D.value) {
       scene = new THREE.Scene()
@@ -495,6 +507,7 @@
           camera.position.z = largestDimension * 0.2;
         });
       });
+      window.addEventListener('resize', onWindowResize, false);
       animate()
     }
   })
@@ -511,6 +524,7 @@
   });
   
   onUnmounted(() => {
+    window.removeEventListener('resize', onWindowResize);
     window.removeEventListener("scroll", checkScroll)
   })
   
@@ -657,7 +671,9 @@
   
 
   <style>
-  p {
-    color: #aaaaaa
+  canvas {
+    width: 100% !important;
+    height: 100% !important;
+    position: relative
   }
 </style>

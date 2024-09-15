@@ -11,7 +11,7 @@ export default defineNuxtPlugin(nuxtApp => {
     const firebaseConfig = {
         apiKey: "AIzaSyBi8dJvahsGnlEJxt2XW9CbCVCZ_F8QbIA",
         authDomain: "eco-enzym.firebaseapp.com",
-        databaseURL: "https://eco-enzym-default-rtdb.asia-southeast1.firebasedatabase.app",
+        databaseUrl: "https://aqualora-a7bea-default-rtdb.asia-southeast1.firebasedatabase.app/",
         projectId: "eco-enzym",
         storageBucket: "eco-enzym.appspot.com",
         messagingSenderId: "1090135367285",
